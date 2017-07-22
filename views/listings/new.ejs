@@ -16,12 +16,10 @@
         </div>
         <div class="form-group dropdown">
           <label for="home_type">Home Type</label><br>
-          <select class="selectpicker" multiple>
-              <option>Flat</option>
-              <option>House or chalet</option>
-              <option>Country home</option>
-              <option>Duplex</option>
-              <option>Penthouses</option>
+          <select class="selectpicker" name='home_type'>
+            <% home_type.forEach((category) => { %>
+              <option type="text" class="form-control" value="<%= category %>"><%= category %></option>
+            <%  }) %>
           </select>
         </div>
         <div class="form-group">
@@ -37,7 +35,7 @@
           <input type="number" name="bathrooms" class="form-control">
         </div>
         <div class="form-group">
-          <button type="submit">Create Campaign</button>
+          <button type="submit">Submit</button>
         </div>
       </form>
     </div>

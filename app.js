@@ -13,7 +13,7 @@ const session            = require('express-session');
 const MongoStore         = require('connect-mongo')(session);
 const flash              = require('connect-flash');
 
-mongoose.connect('mongodb://localhost:27017/qpisos');
+mongoose.connect('mongodb://heroku_qlcftq81:f3m9ak6hh14cepvcjd38pdphqt@ds115493.mlab.com:15493/heroku_qlcftq81');
 
 const index = require('./routes/index');
 const auth  = require('./routes/auth');
@@ -120,7 +120,6 @@ app.use( (req, res, next) => {
 
 
 app.use('/', index);
-app.use('/users', users);
 app.use('/listings', listings);
 app.use('/', auth);
 
