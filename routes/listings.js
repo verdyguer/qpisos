@@ -19,11 +19,13 @@ router.post('/', (req, res, next) => {
   });
   newListing.save( (err) => {
     if (err) {
-       res.render('newListing/new', { campaign: newCampaign, types: TYPES });
+       res.render('newListing/new', {Listing: newListing, types: TYPES });
      } else {
        res.redirect(`/newListing/${newListing._id}`);
      }
   });
 });
+
+
 
 module.exports = router;
