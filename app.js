@@ -120,7 +120,6 @@ app.use( (req, res, next) => {
 
 
 app.use('/', index);
-app.use('/users', users);
 app.use('/listings', listings);
 app.use('/', auth);
 

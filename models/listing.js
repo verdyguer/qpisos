@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 const moment   = require('moment')
 
-const CampaignSchema = new Schema({
+const ListingSchema = new Schema({
   title       : { type: String, required: true },
   description : { type: String, required: false },
   home_type   : { type: String, enum: ["Flat", "House or chalet", "Country home", "Duplex", "Penthouses"], required: true },
@@ -14,6 +14,6 @@ const CampaignSchema = new Schema({
 });
 
 
-const Campaign = mongoose.model('Campaign', CampaignSchema);
+const Listing = mongoose.model('Listing', ListingSchema);
 
-module.exports = Campaign;
+module.exports = Listing;
