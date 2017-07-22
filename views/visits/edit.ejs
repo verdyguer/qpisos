@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 centered-form">
+      <form action="/Visits/<%= Visit._id %>" method="post">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" name="title" class="form-control" value="<%= Visit.title %>">
+        </div>
+        
+        <div class="form-group">
+          <label for="meeting">meeting</label>
+          <input type="date" name="meeting" class="form-control" value="<%= Visit.inputFormattedDate %>">
+        </div>
+        <div class="form-group">
+          <button type="submit">Update Visit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+<% if (typeof(errors) !== 'undefined'){ %>
+  <div class="alert alert-danger">
+  <ul>
+    <% for (let error in errors){ %>
+      <li><%= errors[error].message %></li>
+    <% } %>
+  </ul>
+  </div>
+<% } %>
+</div>

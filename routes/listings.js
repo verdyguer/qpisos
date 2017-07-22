@@ -17,6 +17,13 @@ router.post('/', (req, res, next) => {
     bedrooms    : req.body.bedrooms,
     bathrooms   : req.body.bathrooms
   });
+  newListing.save( (err) => {
+    if (err) {
+       res.render('newListing/new', { campaign: newCampaign, types: TYPES });
+     } else {
+       res.redirect(`/newListing/${newListing._id}`);
+     }
+  });
 });
 
 module.exports = router;
