@@ -1,14 +1,20 @@
-const express = require('express');
-const path = require('path');
-const favicon = require('serve-favicon');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
+const express        = require('express');
+const path           = require('path');
+const favicon        = require('serve-favicon');
+const logger         = require('morgan');
+const cookieParser   = require('cookie-parser');
+const bodyParser     = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
-const index = require('./routes/index');
-const users = require('./routes/users');
+const index          = require('./routes/index');
+const users          = require('./routes/users');
+const mongoose       = require('mongoose');
 
 const app = express();
+
+const listings = require('./routes/listings');
+
+
+mongoose.connect('mongodb://localhost:27017/qpisos');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'bower_components/')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/listings', listings);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
