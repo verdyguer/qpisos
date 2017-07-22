@@ -18,9 +18,9 @@ mongoose.connect('mongodb://localhost:27017/qpisos');
 const index = require('./routes/index');
 const auth  = require('./routes/auth');
 const User  = require('./models/user');
-
-
+const listings = require('./routes/listings');
 const app = express();
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -44,7 +44,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   store: new MongoStore( { mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 // 1 day 
+    ttl: 24 * 60 * 60 // 1 day
   })
 }));
 
@@ -120,8 +120,9 @@ app.use( (req, res, next) => {
 
 
 app.use('/', index);
+app.use('/users', users);
+app.use('/listings', listings);
 app.use('/', auth);
-
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
