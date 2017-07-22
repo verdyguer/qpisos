@@ -1,16 +1,17 @@
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 const moment   = require('moment')
+const constants = require('../lib/constants')
 
 const ListingSchema = new Schema({
   title       : { type: String, required: true },
   description : { type: String, required: false },
-  home_type   : { type: String, enum: ["Flat", "House or chalet", "Country home", "Duplex", "Penthouses"], required: true },
+  home_type   : { type: String, enum: constants.home_type, required: true },
   price       : { type: Number, required: true },
   _owner      : { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  size        : { type: Number},
-  bedrooms    : { type: Number},
-  bathrooms   : { type: Number}
+  size        : { type: Number, required: true},
+  bedrooms    : { type: Number, required: true},
+  bathrooms   : { type: Number, required: true}
 });
 
 

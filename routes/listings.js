@@ -2,12 +2,14 @@ const express        = require('express');
 const Listing        = require('../models/listing');
 const router         = express.Router();
 const { ensureLoggedIn }  = require('connect-ensure-login');
+const constants = require('../lib/constants')
 
 router.get('/new', ensureLoggedIn('/login'), (req, res) => {
-  res.render('listings/new');
+  res.render('listings/new', {home_type: constants.home_type});
 });
 
 router.post('/', ensureLoggedIn('/login'), (req, res, next) => {
+  console.log(req.body);
   const newListing = new Listing({
     title       : req.body.title,
     description : req.body.description,
@@ -20,9 +22,11 @@ router.post('/', ensureLoggedIn('/login'), (req, res, next) => {
   });
   newListing.save( (err) => {
     if (err) {
-       res.render('newListing/new');
+      console.log ("hola");
+      console.log (err);
+      res.render('listings/new', {home_type: constants.home_type});
      } else {
-       res.redirect(`/`);
+      res.redirect(`/`);
      }
   });
 });
