@@ -160,3 +160,66 @@ progress {
     padding-bottom: 10px;
     line-height: 40px;
 }
+ /* css login */
+
+#form {
+  margin: 30px auto;
+  width: 380px;
+}
+
+#form label {
+  color: #666;
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+#form input,
+#form button {
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: 0;
+  padding: 4px;
+  width: 100%;
+}
+
+#form button {
+  background: #f7931e;
+  border: 1px solid #f7931e;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .3s ease background;
+  width: 100%;
+}
+
+#form button:hover {
+  background: #fff;
+  color: #f7931e;
+  transition: .3s ease background;
+}
+#form title {
+  font-size: 28px;
+  color: #f7931e;
+  display: inline-block;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+.error-message{
+  background: red;
+  font-size: 20px;
+  color: #fff;
+  display: inline-block;
+  margin-top:  10px;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}

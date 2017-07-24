@@ -48,51 +48,22 @@ app.use(session({
   })
 }));
 
-// NEW
 passport.serializeUser((user, cb) => {
   cb(null, user.id);
 });
 
 passport.deserializeUser((id, cb) => {
-  User.findById(id, (err, user) => {
+  User.findOne({ "_id": id }, (err, user) => {
     if (err) { return cb(err); }
     cb(null, user);
   });
 });
 
-// Signing Up
-passport.use('local-signup', new LocalStrategy(
-  { passReqToCallback: true },
-  (req, username, password, next) => {
-    // To avoid race conditions
-    process.nextTick(() => {
-        User.findOne({
-            'username': username
-        }, (err, user) => {
-            if (err){ return next(err); }
-
-            if (user) {
-                return next(null, false);
-            } else {
-                // Destructure the body
-                const { username, email, password } = req.body;
-                const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-                const newUser = new User({
-                  username,
-                  email,
-                  password: hashPass
-                });
-
-                newUser.save((err) => {
-                    if (err){ next(err); }
-                    return next(null, newUser);
-                });
-            }
-        });
-    });
-}));
-//login
-passport.use('local-login', new LocalStrategy((username, password, next) => {
+app.use(flash());
+passport.use(new LocalStrategy({
+  passReqToCallback:true,
+},
+  (req,username, password, next) => {
   User.findOne({ username }, (err, user) => {
     if (err) {
       return next(err);
@@ -107,6 +78,7 @@ passport.use('local-login', new LocalStrategy((username, password, next) => {
     return next(null, user);
   });
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use( (req, res, next) => {

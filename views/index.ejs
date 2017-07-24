@@ -1,1 +1,25 @@
+<div class="container-fluid">
+  <div class="home-heading text-center row">
+    <div class="home-heading-wrapper">
+      <h1>Our Lisiting</h1>
+      <p>AKI EL MAPA CON LOS LISTING</p>
+      <a class="btn btn-default" href="*">Read their stories</a>
+    </div>
+  </div>
+</div>
+<div class="Listing-row row">
+    <h3 class="text-center">You may be interested in...</h3>
+    <% Listings.forEach((Listing) => { %>
+      <div class="col-sm-3 home-Listing-box">
+        <img src="<%= Listing.image %>">
+        <div class="Listing-info-wrapper">
+          <a class="title" href="/Listings/<%= Listing._id %>">
+            <strong><%= Listing.title %></strong>
+          </a><br>
+          by <span class="light-text"><%= Listing._creator.username %></span><br>
+          <span class="light-text description"><%= Listing.description %></span>
+        </div>
+      </div>
+    <%  }) %>
+  </div>
 
