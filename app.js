@@ -60,7 +60,7 @@ passport.deserializeUser((id, cb) => {
 });
 
 app.use(flash());
-passport.use(new LocalStrategy({
+passport.use('local-login',new LocalStrategy({
   passReqToCallback:true,
 },
   (req,username, password, next) => {
@@ -97,6 +97,8 @@ app.use('/', auth);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
+  console.log('err aqui');
+  console.log(err);
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
