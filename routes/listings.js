@@ -18,8 +18,10 @@ router.post('/', ensureLoggedIn('/login'), (req, res, next) => {
     _owner      : req.user._id,
     size        : req.body.size,
     bedrooms    : req.body.bedrooms,
-    bathrooms   : req.body.bathrooms
+    bathrooms   : req.body.bathrooms,
+    location: { type: { type: String }, coordinates: [Number] }
   });
+  ListingsSchema.index({ location: '2dsphere' });
   newListing.save( (err) => {
     if (err) {
       console.log ("hola");

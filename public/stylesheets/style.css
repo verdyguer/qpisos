@@ -160,3 +160,8 @@ progress {
     padding-bottom: 10px;
     line-height: 40px;
 }
+#map {
+        height: 500px;
+        width: 100%;
+       }
+      
