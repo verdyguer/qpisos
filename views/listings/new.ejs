@@ -17,7 +17,8 @@
         <div class="form-group dropdown">
           <label for="home_type">Home Type</label><br>
           <select class="selectpicker" name='home_type'>
-            <% home_type.forEach((category) => { %>
+            <option type="text" class="form-control" disabled selected>Select a type</option>
+            <% home_type.forEach((category, i) => { %>
               <option type="text" class="form-control" value="<%= category %>"><%= category %></option>
             <%  }) %>
           </select>

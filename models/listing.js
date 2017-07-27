@@ -14,6 +14,10 @@ const ListingSchema = new Schema({
   bathrooms   : { type: Number, required: true}
 });
 
+ListingSchema.methods.belongsTo = function(user){
+  return this._owner.equals(user._id);
+};
+
 
 const Listing = mongoose.model('Listing', ListingSchema);
 

@@ -1,1 +1,14 @@
 
+<div class="listing-row row">
+    <h3 class="text-center">Available Listings</h3>
+    <% listings.forEach((listing) => { %>
+      <div class="col-sm-3 home-listing-box">
+        <div class="listing-info-wrapper">
+          <a class="title" href="/listings/<%= listing._id %>">
+            <strong><%= listing.title %></strong>
+          </a><br>
+          <span class="light-text description"><%= listing.description %></span>
+        </div>
+      </div>
+    <%  }) %>
+  </div>
