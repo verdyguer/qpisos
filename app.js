@@ -33,6 +33,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(require('node-sass-middleware')({
+  src: path.join(__dirname, 'public'),
+  dest: path.join(__dirname, 'public'),
+  indentedSyntax: false,
+  sourceMap: true
+}));
 // app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')))
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components/')));
@@ -118,10 +124,10 @@ app.use( (req, res, next) => {
   next();
 });
 
-
 app.use('/', index);
 app.use('/listings', listings);
 app.use('/', auth);
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
