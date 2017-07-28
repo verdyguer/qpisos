@@ -11,12 +11,14 @@ const ListingSchema = new Schema({
   _owner      : { type: Schema.Types.ObjectId, ref: 'User', required: true },
   size        : { type: Number, required: true},
   bedrooms    : { type: Number, required: true},
-  bathrooms   : { type: Number, required: true}
+  bathrooms   : { type: Number, required: true},
+  location: { type: { type: String }, coordinates: [Number] }
 });
 
 ListingSchema.methods.belongsTo = function(user){
   return this._owner.equals(user._id);
 };
+ListingSchema.index({ location: '2dsphere' });
 
 
 const Listing = mongoose.model('Listing', ListingSchema);
