@@ -8,16 +8,15 @@ $(document).ready(function(){
     method: 'GET',
     success: printMapAndMarker,
     error: function(error) {
-      console.log('error'); 
     }
   });
 
   function printMapAndMarker(listing){
   	var position = {
-  	  lat: listing.location.coordinates[1], 
+  	  lat: listing.location.coordinates[1],
   	  lng: listing.location.coordinates[0]
   	};
-  	
+
   	var map = new google.maps.Map(document.getElementById('map'), {
   	  zoom: 15,
   	  center: position

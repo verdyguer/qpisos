@@ -35,8 +35,6 @@
 //
 //     newVisit.save((err) => {
 //         if (err) {
-//             console.log("hola")
-//             console.log(err)
 //         res.render('Visits/new', { Visit: newVisit, types: TYPES });
 //     } else {
 //         res.redirect(`/Visits/${newVisit._id}`);

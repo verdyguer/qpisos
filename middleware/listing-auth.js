@@ -16,11 +16,9 @@ function authorizeListing(req, res, next){
 }
 
 function checkOwnership(req, res, next){
-  console.log('jeje')
   Listing.findById(req.params.id, (err, listing) => {
     if (err){ return next(err) }
     if (!listing){ return next(new Error('404')) }
-    console.log(req.user)
     if (req.user && listing.belongsTo(req.user)){
       res.locals.listingIsCurrentUsers = true;
     } else {
