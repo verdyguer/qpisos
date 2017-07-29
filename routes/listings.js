@@ -15,7 +15,6 @@ router.get('/new', ensureLoggedIn('/login'), (req, res) => {
 });
 
 router.post('/', ensureLoggedIn('/login'), (req, res, next) => {
-  console.log(req.body);
   const newListing = new Listing({
     title: req.body.title,
     description: req.body.description,
@@ -34,7 +33,6 @@ router.post('/', ensureLoggedIn('/login'), (req, res, next) => {
   newListing.save((err) => {
     if (err) {
       res.render('listings/new', { home_type: constants.home_type });
-      console.log("no lo guarda")
     } else {
       res.redirect(`/listings/${newListing._id}`);
     }
@@ -67,5 +65,33 @@ router.get('/:id/edit',
     });
   });
 
+
+router.post('/:id',
+  [
+    ensureLoggedIn('/login'),
+    authorizeListing
+  ],
+  (req, res, next) => {
+  const updates = {
+    title: req.body.title,
+    description: req.body.description,
+    home_type: req.body.home_type,
+    price: req.body.price,
+    _owner: req.user._id,
+    size: req.body.size,
+    bedrooms: req.body.bedrooms,
+    bathrooms: req.body.bathrooms,
+    location: {
+      type: 'Point',
+      coordinates: [req.body.longitude, req.body.latitude]
+    }
+  };
+
+  Listing.findByIdAndUpdate(req.params.id, updates, (err, listing) => {
+    if (err)       { return res.render('listings/edit', { listing, errors: listing.errors }); }
+    if (!listing) { return next(new Error("404")); }
+    return res.redirect(`/listings/${listing._id}`);
+  });
+});
 
 module.exports = router;
