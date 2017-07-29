@@ -11,7 +11,7 @@ $(document).ready(function () {
  
   let marker = [];
   myListings.forEach(function (listing) {
-    let title = "qpisos"
+    let title = listing.title
     let position = {
       lat: listing.location.coordinates[1],
       lng: listing.location.coordinates[0]
