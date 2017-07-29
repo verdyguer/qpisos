@@ -19,7 +19,5 @@
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKIv36asP3gBqbOWJsq4lEtYPRx1LW-Sw"></script>
-<script type="text/javascript">
- let myListing = [<%- listings %>];
-</script>
+<script type="text/javascript"> var myListings = <%- JSON.stringify(listings) %></script>
 <script type="text/javascript" src="/javascripts/main.js"></script>

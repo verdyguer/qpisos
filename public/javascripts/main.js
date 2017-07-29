@@ -1,4 +1,3 @@
- 
 $(document).ready(function () {
   const sol = {
     lat: 40.417080,
@@ -9,8 +8,7 @@ $(document).ready(function () {
     zoom: 12,
     center: sol
   });
- });
-
+ 
   let marker = [];
   myListings.forEach(function (listing) {
     let title = "qpisos"
@@ -22,5 +20,5 @@ $(document).ready(function () {
     marker.push(pin)
   });
 
-
+});
 
