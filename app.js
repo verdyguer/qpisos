@@ -19,6 +19,7 @@ const index = require('./routes/index');
 const auth  = require('./routes/auth');
 const User  = require('./models/user');
 const listings = require('./routes/listings');
+const visitor = require('./routes/visitors');
 const app = express();
 
 // view engine setup
@@ -126,6 +127,7 @@ app.use( (req, res, next) => {
 app.use('/', index);
 app.use('/listings', listings);
 app.use('/', auth);
+app.use('/visitors', visitor);
 
 
 // catch 404 and forward to error handler
