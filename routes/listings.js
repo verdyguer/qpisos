@@ -29,9 +29,10 @@ router.post('/', ensureLoggedIn('/login'), (req, res, next) => {
       coordinates: [req.body.longitude, req.body.latitude]
     }
   });
-
+console.log (newListing);
   newListing.save((err) => {
     if (err) {
+      console.log('la concha de tu madre')
       res.render('listings/new', { home_type: constants.home_type });
     } else {
       res.redirect(`/listings/${newListing._id}`);

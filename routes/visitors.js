@@ -12,7 +12,8 @@ router.post('/', (req, res, next) => {
   const newVisitor = new visitor({
     nameVisitor: req.body.nameVisitor,
     namePhone: req.body.namePhone,
-    nameEmail: req.body.nameEmail
+    nameEmail: req.body.nameEmail,
+     _owner: req.user._id
   });
 
   newVisitor.save((err) => {

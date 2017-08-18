@@ -8,7 +8,7 @@ $(document).ready(function () {
     zoom: 12,
     center: sol
   });
- 
+
   let marker = [];
   myListings.forEach(function (listing) {
     let title = listing.title
@@ -21,4 +21,11 @@ $(document).ready(function () {
   });
 
 });
+
+$(".button-collapse").sideNav();
+$('select').material_select();
+
+
+
+
 
