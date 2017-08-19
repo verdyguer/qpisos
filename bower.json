@@ -13,9 +13,10 @@
   ],
   "dependencies": {
     "jquery": "^3.2.1",
-    "bootstrap": "^3.3.7"
+    "materialize":"latest"
   },
   "authors": [
-    "Mario Verdyguer <verdyguer@gmail.com>"
+    "Mario Verdyguer <verdyguer@gmail.com>",
+    "Miguel Perez"
   ]
 }

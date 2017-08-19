@@ -14,34 +14,36 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
 
   <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
   <script>
     $(".button-collapse").sideNav();
   </script>
 </head>
 
 <body>
-
   <nav>
     <div class="nav-wapper">
       <a href="/" class="nav-logo-link">
       <img class="nav-logo-image" src="/images/qpisos.png" alt="qPisos Logo">
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-
-        <li><a href="/listings/new">Add a Listing</a></li>
-        <li><a href="/login">Login/Register</a></li>
-        <li><form action="/logout" method="POST">
-    
-                    <button class="btn btn-link btn-flat" type="submit">Logout</a>
-                  </form></li>
-        <li><a href="/">Find your new home</a></li>
-      </ul>
-      <ul class="side-nav" id="nav-mobile">
-        <li><a href="/listings/new">Add a Listing</a></li>
-        <li><a href="/login">Register</a></li>
-        <li><a href="/">Find your new home</a></li>
-      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse  show-on-large"><i class="material-icons">menu</i></a>
+        <ul class="side-nav" id="nav-mobile">
+          <li><a href="/">Find your new home</a></li>
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Log<i class="material-icons right">arrow_drop_down</i></a></li>
+          <ul id="dropdown1" class="dropdown-content" style="width: 135.031px; position: absolute; top: 0px; left: 391.172px; display: none; opacity: 1;">
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Register</a></li>
+            <li>
+              <form action="/logout" method="POST">
+                <button class="btn btn-link btn-flat" type="submit">Logout</a>
+              </form>
+            </li> 
+          </ul>
+          
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Listings<i class="material-icons right">arrow_drop_down</i></a></li>
+        <ul id="dropdown2" class="dropdown-content" style="width: 135.031px; position: absolute; top: 0px; left: 391.172px; display: none; opacity: 1;"> 
+          <li><a href="/listings/new">Add a Listing</a></li>
+           <li><a href="/listings/edit">Edit your listings</a></li>
+        </ul>
     </div>
   </nav>
   <div class="drag-target" data-sidenav="nav-mobile" style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>
@@ -52,31 +54,32 @@
   </div>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="materialize/dist/js/materialize.min.js"></script>
-
+<script type="text/javascript" src="/javascripts/main.js"></script>
 </body>
-      <footer class="page-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2017 Copyright by "El furgón de cola"
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-          </div>
-        </footer>
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Footer Content</h5>
+        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2017 Copyright by "El furgón de cola"
+      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+    </div>
+  </div>
+</footer>
+
 </html>

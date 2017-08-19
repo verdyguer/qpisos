@@ -9,7 +9,7 @@
           <label for="title">Title</label>
           <input id='address' type="text" name="title" class="form-control">
         </div>
-        <div id="map">Confirm address on the map</div>
+        <div id="map"></div>
 
         <div class="form-group">
 
@@ -21,48 +21,48 @@
             <div class="col s6">
               <input id='longitude' type="text" name="longitude" placeholder="Longitude">
             </div>
-          </div>
-          <div class="form-group">
+        </div>
+        <div class="form-group">
             <label for="price">Price</label>
             <input type="number" name="price" class="form-control">
-          </div>
-          <div class="form-group">
+        </div>
+        <div class="form-group">
             <label for="description">Description</label>
             <textarea id="description" name="description" class="form-control"></textarea>
-          </div>
-          <div class="form-group">
+        </div>
+        <div class="form-group">
               <div class="input-field col s12">
-              <select>
-                 <option value="" disabled selected>Home Type</option>
+              <select name= "home_type" >
+                 <option value="" disabled="disabled" selected="selected">Home Type</option>
                <% home_type.forEach((category, i) => { %>
-              <option value="text" class="form-control" value="<%= category %>"><%= category %></option>
+              <option type="text"  class="form-control" value="<%= category %>"><%= category %></option>
               <%  }) %>
               </select>
+            
               </div>
-          </div>  
-            <div class="form-group">
+        </div>  
+        <div class="form-group">
               <label for="size">Size</label>
               <input type="number" name="size" class="form-control">
-            </div>
-            <div class="form-group">
+        </div>
+        <div class="form-group">
               <label for="bedrooms">Bedrooms</label>
               <input type="number" name="bedrooms" class="form-control">
-            </div>
-            <div class="form-group">
+        </div>
+        <div class="form-group">
               <label for="bathrooms">Bathrooms</label>
               <input type="number" name="bathrooms" class="form-control">
-            </div>
-            <div class="form-group">
+        </div>  
+            <div class="row">
               <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-              <i class="material-icons right">send</i>
-            </button>
-
+              <i class="material-icons right">cloud</i>
+              </button>
             </div>
       </form>
-      </div>
-      </div>
+           
     </div>
-    <div id="map"></div>
+  </div>
+</div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKIv36asP3gBqbOWJsq4lEtYPRx1LW-Sw"></script>
     <script type="text/javascript" src="/javascripts/new.js"></script>
     
