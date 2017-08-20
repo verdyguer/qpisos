@@ -33,7 +33,8 @@ $('.dropdown-button').dropdown({
            belowOrigin: false 
            }
       );
-
+   $('.modal').modal();        
+  $('.modal1').modal(open);
 
 
 

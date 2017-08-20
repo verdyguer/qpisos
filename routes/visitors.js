@@ -1,30 +1,30 @@
 const express = require('express');
 const visitor = require('../models/visitor');
 const router = express.Router();
-console.log ('entra fichero')
+console.log ('entra modelo visitor')
 
 
 router.get('/new', (req, res, next) => {
-  console.log ('entra ruta')
+  console.log ('entra ruta visitor')
   res.render('visitors/new')});
 
 router.post('/', (req, res, next) => {
   const newVisitor = new visitor({
-    nameVisitor: req.body.nameVisitor,
-    namePhone: req.body.namePhone,
-    nameEmail: req.body.nameEmail,
-     _owner: req.user._id
+    visitorName: req.body.visitorName,
+    visitorPhone: req.body.visitorPhone,
+    visitorEmail: req.body.visitorEmail
+ 
   });
-
+console.log(newVisitor);
   newVisitor.save((err) => {
     if (err) {
-      res.render('visitors/new');
+      console.log('la concha')
+      res.render('/');
     } else {
-      res.redirect(`/visitors/${newVisitor._id}`);
+      res.redirect('/visitors/new');
     }
   });
 });
-
 
 
 
