@@ -1,5 +1,6 @@
 <!-- views/authentication/login.ejs -->
 <div class="container">
+
   <div class="row">
     <div class="col-sm-6 centered-form">
       <form action="/login" method="post">
@@ -12,8 +13,9 @@
           <label for="password">Password</label>
           <input type="password" name="password" class="form-control">
         </div>
-
-        <button type="submit">Login</button>
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
       </form>
     </div>
   </div>

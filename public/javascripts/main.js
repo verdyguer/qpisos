@@ -8,7 +8,7 @@ $(document).ready(function () {
     zoom: 12,
     center: sol
   });
- 
+
   let marker = [];
   myListings.forEach(function (listing) {
     let title = listing.title
@@ -21,4 +21,21 @@ $(document).ready(function () {
   });
 
 });
+
+$(".button-collapse").sideNav();
+$('select').material_select();
+$('.dropdown-button').dropdown({
+           inDuration: 300,
+           outDuration: 225,
+           constrain_width: true, 
+           hover: true, 
+           gutter: 0, 
+           belowOrigin: false 
+           }
+      );
+   $('.modal').modal();        
+  $('.modal1').modal(open);
+
+
+
 

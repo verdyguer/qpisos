@@ -29,7 +29,7 @@ router.post('/', ensureLoggedIn('/login'), (req, res, next) => {
       coordinates: [req.body.longitude, req.body.latitude]
     }
   });
-
+console.log (newListing);
   newListing.save((err) => {
     if (err) {
       res.render('listings/new', { home_type: constants.home_type });

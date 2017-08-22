@@ -1,0 +1,63 @@
+<!-- views/visitors/new.ejs -->
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-6 centered-form">
+      <form action="/visitors" method="post">
+        <div class="form-group">
+          <label for="visitorName">Your name</label>
+          <input type="text" name="visitorName" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="visitorEmail">Email</label>
+          <input type="text" name="visitorEmail" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="vistorPhone">Password</label>
+          <input type="text" name="visitorPhone" class="form-control">
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+
+
+              <h4>Email Confirmation</h4>
+
+              <div class="form-group">
+              
+              
+              </div>
+
+
+
+              Hi,<br>
+              <br> You are going to send an email asking for a visit/additional info about DireccionInmueble <br>
+              <br>
+              <strong>Datos vendedor:</strong><br> Nombre: $NombreVendedor$<br>
+
+              <br>
+              <strong>Datos comprador:</strong><br> Nombre: $NombreComprador$<br> Teléfono: $TelefonoComprador$<br> Email:
+              $EmailComprador$<br>
+              <br> Un saludo<br>
+              <br>
+               
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+          </div>
+        </div>
+        <div class="row">
+          <button class="btn waves-effect waves-light" type="submit" name="action">Agree to share my data
+            <i class="material-icons right">send</i>
+          </button>
+          <button data-target="modal1" class="btn modal-trigger">Ask for a visit</button>
+        </div>
+      
+      </form>
+    </div>
+  </div>
+  
+</div>
+
+<script type="text/javascript" src="/javascripts/main.js"></script>
