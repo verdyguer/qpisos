@@ -13,7 +13,7 @@
           <input type="text" name="visitorEmail" class="form-control">
         </div>
         <div class="form-group">
-          <label for="vistorPhone">Password</label>
+          <label for="vistorPhone">Phone</label>
           <input type="text" name="visitorPhone" class="form-control">
         </div>
 
@@ -24,18 +24,25 @@
 
               <h4>Email Confirmation</h4>
 
-            
+          <p>Por ejemplo:<br>
+							<code class="green">
+							html = &lt;a href="" data-username="Dennis">Enlace</a><br>
+							Javascript = variables : {
+							username : 'data-username'
+							},
+							title : 'aquí se muestra al usuario {{username}}'</code><br>
+							Donde "username" será el nombre de la variable que utilizarás en la definición del título o del mensaje y "data-username" el nombre del atributo del cual será extraido el valor de la variable. Para este ejemplo se mostrará en el título "aquí se muestra al usuario <b>Dennis</b>".
+						</p>
 
-
-
-              Hi,<br>
+           
+           
               <br> You are going to send an email asking for a visit/additional info about DireccionInmueble <br>
               <br>
-              <strong>Datos vendedor:</strong><br> Nombre: $NombreVendedor$<br>
+              <strong>Datos vendedor:</strong><br> Nombre: {{visitorName}}<br>
 
               <br>
-              <strong>Datos comprador:</strong><br> Nombre: $NombreComprador$<br> Teléfono: $TelefonoComprador$<br> Email:
-              $EmailComprador$<br>
+              <strong>Datos comprador:</strong><br> Nombre: {{visitorName}}<br> Teléfono: {{visi}}<br> Email:
+              {{visitorEmail}}<br>
               <br> Un saludo<br>
               <br>
                
@@ -44,11 +51,14 @@
             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
           </div>
         </div>
+        
         <div class="row">
           <button class="btn waves-effect waves-light" type="submit" name="action">Agree to share my data
             <i class="material-icons right">send</i>
           </button>
-          <button data-target="modal1" class="btn modal-trigger">Ask for a visit</button>
+          <br>
+          <br>
+          <button data-target="modal1" class="btn modal-trigger">       Ask for a visit<i class="material-icons right">phone</i></button>
         </div>
       
       </form>

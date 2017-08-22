@@ -18,7 +18,6 @@ router.post('/', (req, res, next) => {
 console.log(newVisitor);
   newVisitor.save((err) => {
     if (err) {
-      console.log('la concha')
       res.render('/');
     } else {
       res.redirect('/visitors/new');
