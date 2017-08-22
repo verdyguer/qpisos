@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 const moment   = require('moment')
 const constants = require('../lib/constants')
+const cloudinary = require('cloudinary')
 
 const ListingSchema = new Schema({
   title       : { type: String, required: true },
@@ -12,7 +13,7 @@ const ListingSchema = new Schema({
   size        : { type: Number, required: true},
   bedrooms    : { type: Number, required: true},
   bathrooms   : { type: Number, required: true},
-  location: { type: { type: String }, coordinates: [Number] }
+  location    : { type: { type: String }, coordinates: [Number] }
 });
 
 ListingSchema.methods.belongsTo = function(user){
