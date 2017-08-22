@@ -1,4 +1,5 @@
 const express = require('express');
+const cloudinary = require('cloudinary')
 const Listing = require('../models/listing');
 const router = express.Router();
 const { ensureLoggedIn } = require('connect-ensure-login');
@@ -28,8 +29,11 @@ router.post('/', ensureLoggedIn('/login'), (req, res, next) => {
       type: 'Point',
       coordinates: [req.body.longitude, req.body.latitude]
     }
+
+    cloudinary.v2.uploader.upload("/tmp/uploads/my_image.jpg", 
+    function(error, result) {console.log(result)});
   });
-console.log (newListing);
+
   newListing.save((err) => {
     if (err) {
       res.render('listings/new', { home_type: constants.home_type });
