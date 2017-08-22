@@ -12,6 +12,7 @@ const passport           = require('passport');
 const session            = require('express-session');
 const MongoStore         = require('connect-mongo')(session);
 const flash              = require('connect-flash');
+const cloudinary         = require('cloudinary')
 
 mongoose.connect('mongodb://heroku_qlcftq81:f3m9ak6hh14cepvcjd38pdphqt@ds115493.mlab.com:15493/heroku_qlcftq81');
 
@@ -112,6 +113,14 @@ passport.use('local-login', new LocalStrategy((username, password, next) => {
     return next(null, user);
   });
 }));
+
+cloudinary.config({
+  cloud_name: 'qpisos',
+  api_key: '435989593481686',
+  api_secret: '0FhcX26nW95hFaPhbX1CIkPwYhk'
+});
+
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use( (req, res, next) => {

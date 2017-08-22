@@ -1,4 +1,5 @@
 const express = require('express');
+const cloudinary = require('cloudinary')
 const Listing = require('../models/listing');
 const router = express.Router();
 const { ensureLoggedIn } = require('connect-ensure-login');
