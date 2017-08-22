@@ -39,5 +39,6 @@ var map = new google.maps.Map(document.getElementById('map'), {
 $(".button-collapse").sideNav();
 $('select').material_select();
 $(".dropdown-button").dropdown();
+$('.carousel').carousel();
   
      

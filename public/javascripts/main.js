@@ -34,8 +34,15 @@ $('.dropdown-button').dropdown({
            }
       );
    $('.modal').modal();        
-  $('.modal1').modal(open);
-
-
+  
+  
+function getData (name, phone, email) {
+  var data = new data(document.getElementById('visitor'), {
+      name: {visitorName},
+      Phone: {visitorPhone},
+      email: {visitorEmail}
+    });
+  
+  };
 
 

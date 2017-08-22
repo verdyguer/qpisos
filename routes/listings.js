@@ -29,9 +29,6 @@ router.post('/', ensureLoggedIn('/login'), (req, res, next) => {
       type: 'Point',
       coordinates: [req.body.longitude, req.body.latitude]
     }
-
-    cloudinary.v2.uploader.upload("/tmp/uploads/my_image.jpg", 
-    function(error, result) {console.log(result)});
   });
 
   newListing.save((err) => {
