@@ -21,6 +21,7 @@
     "express-layout": "^0.1.0",
     "express-session": "^1.15.3",
     "faker": "^4.1.0",
+    "materialize-css": "^0.100.1",
     "moment": "^2.18.1",
     "mongo": "^0.1.0",
     "mongoose": "^4.11.1",

@@ -1,19 +1,41 @@
 <div class="container listing-container">
+
   <div class="row">
     <div class="col-sm-2">
-      <img src="/images/house.png"><br>
-    Owner: <strong><%= listing._owner.username %></strong>
+      <img src="/images/house.png"><br> Owner: <strong><%= listing._owner.username %></strong>
     </div>
     <div class="col-sm-10">
-      <h1><%= listing.title %></h1>
-      <p class="listing-price"><%= listing.price %> Euros</p>
-      <p class="listing-description"><%= listing.description %></p>
+      <h1>
+        <%= listing.title %>
+      </h1>
+      <p class="listing-price">
+        <%= listing.price %> Euros</p>
+      <p class="listing-description">
+        <%= listing.description %>
+      </p>
     </div>
   </div>
-  </div>
-    <a class="btn backer-btn" href="/">Keep Looking...</a>
-  </div>
-
-  <% if (listingIsCurrentUsers) { %>
-    <a class="btn backer-btn" href="/listings/<%= listing._id%>/edit">Edit this Listing</a>
+</div>
+<a class="btn backer-btn" href="/">Keep Looking...</a>
+</div>
+</div>
+<a class="btn backer-btn" href="../visitors/new">Ask for a visit</a>
+</div>
+<% if (listingIsCurrentUsers) { %>
+  <a class="btn backer-btn" href="/listings/<%= listing._id%>/edit">Edit this Listing</a>
   <% }  %>
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKIv36asP3gBqbOWJsq4lEtYPRx1LW-Sw"></script>
+    <script type="text/javascript" src="/javascripts/show.js"></script>
+    <script>
+      $(function () {
+        printMapAndMarker(
+          '<%= listing.title %>',
+          <%= listing.location.coordinates[0] %>,
+          <%= listing.location.coordinates[1] %>
+        )
+      })
+
+</script>
+
+
