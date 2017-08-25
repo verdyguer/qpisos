@@ -13,7 +13,8 @@ const ListingSchema = new Schema({
   size        : { type: Number, required: true},
   bedrooms    : { type: Number, required: true},
   bathrooms   : { type: Number, required: true},
-  location    : { type: { type: String }, coordinates: [Number] }
+  location    : { type: { type: String }, coordinates: [Number] },
+  images      : { type: [String]}
 });
 
 ListingSchema.methods.belongsTo = function(user){

@@ -13,6 +13,8 @@ const session            = require('express-session');
 const MongoStore         = require('connect-mongo')(session);
 const flash              = require('connect-flash');
 const cloudinary         = require('cloudinary')
+const multer             = require('multer');
+const async              = require('async');
 
 mongoose.connect('mongodb://heroku_qlcftq81:f3m9ak6hh14cepvcjd38pdphqt@ds115493.mlab.com:15493/heroku_qlcftq81');
 
@@ -51,7 +53,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   store: new MongoStore( { mongooseConnection: mongoose.connection,
-    ttl: 24 * 3600 * 1000 
+    ttl: 24 * 3600 * 1000
   })
 }));
 
