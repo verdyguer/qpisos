@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6 centered-form">
-      <form action="/listings" method="post">
+      <form action="/listings" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="title">Title</label>
           <input id='address' type="text" name="title" class="form-control">
@@ -53,13 +53,22 @@
               <label for="bathrooms">Bathrooms</label>
               <input type="number" name="bathrooms" class="form-control">
         </div>
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>Upload images</span>
+            <input name="image" type="file" multiple>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Upload one or more files">
+          </div>
+        </div>
             <div class="row">
               <button class="btn waves-effect waves-light" type="submit" name="action">Submit
               <i class="material-icons right">send</i>
               </button>
             </div>
       </form>
-           
+
     </div>
   </div>
 </div>
