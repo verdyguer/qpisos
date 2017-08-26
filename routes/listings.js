@@ -18,10 +18,11 @@ router.get('/new', ensureLoggedIn('/login'), (req, res) => {
 });
 
 router.post('/', ensureLoggedIn('/login'), upload.array('image', 5), (req, res, next) => {
-
+  console.log(req.body);
   const tasks = req.files.map(image => uploadToCloudinary(image.path));
 
   async.parallel(tasks, (error, results) => {
+    console.log(req.body.longitude)
     const newListing = new Listing({
       title: req.body.title,
       description: req.body.description,
